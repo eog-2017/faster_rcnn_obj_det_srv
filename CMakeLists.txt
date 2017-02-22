@@ -126,7 +126,7 @@ include_directories(
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-#add_dependencies(faster_rcnn_obj_det_srv ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#add_dependencies(faster_rcnn_obj_det_srv suction_routine)
 
 ## Declare a C++ executable
 # add_executable(faster_rcnn_obj_det_srv_node src/faster_rcnn_obj_det_srv_node.cpp)

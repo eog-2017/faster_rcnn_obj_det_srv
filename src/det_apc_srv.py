@@ -70,6 +70,9 @@ def image_service_callback(req):
     bbox_classid_array = Int32MultiArray(data=[])
     score_array = Float64MultiArray(data=[])
 
+    #cv2.imshow("window", cv2_img)
+    #cv2.waitKey(0)
+
     
     bbox_classid, score = demo(net, cv2_img)
 
@@ -79,6 +82,8 @@ def image_service_callback(req):
 	bbox_classid_array.data.extend(bbox_classid[index].tolist())
 	index = index + 1
     score_array.data.extend(score)
+    #print bbox_classid_array
+    #print score_array
     return bbox_scoresResponse(bbox_classid_array, score_array)
 
 
@@ -94,7 +99,7 @@ def demo(net, im):
            '{:d} object proposals').format(timer.total_time, boxes.shape[0])
 
     # Visualize detections for each class
-    CONF_THRESH = 0.1
+    CONF_THRESH = 0.8
     NMS_THRESH = 0.3
     
     bbox_classid = []
